@@ -1,0 +1,213 @@
+@import './global';
+
+* {
+    // outline: 0.1vmin solid greenyellow;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#lamina-logo {
+    width: 10vmin;
+    @media (max-width: 992px) {
+        width: 10vmin;
+    }
+}
+
+body {
+    min-width: auto;
+    width: 100%;
+    .navbar {
+        @include flexFunction(row);
+        align-items: center;
+        justify-content: space-between;
+        @include padding(5vmin, 2vmin);
+        position: fixed;
+        width: 100%;
+        z-index: 10;
+        background-color: rgba(0, 0, 0, 0.5);
+        -webkit-backdrop-filter:saturate(180%) blur(20px);
+backdrop-filter: saturate(180%) blur(20px);
+        a {
+            line-height: 0;
+        }
+        .nav {
+            @include flexFunction(row);
+            align-items: center;
+            gap: 1vmin;
+            .nav-list {
+                line-height: 100%;
+                &:last-child {
+                    line-height: 0;
+                    span {
+                        font-size: 4vmin;
+                    }
+                }
+                &:not(:last-child) {
+                    transform: skewX(-25deg);
+                    background-color: $main;
+                    &.active {
+                        background-image: linear-gradient(to top, $orange-gradient, $yellow-gradient);
+                        // background-color: $orange-gradient;
+                    }
+                    .nav-link {
+                        font-weight: 700;
+                        font-size: 2vmin;
+                        transform: skewX(25deg);
+                        @include padding(5vmin, 2vmin);
+                        display: inline-block;
+                        color: $black;
+                        font-weight: 600;
+                        letter-spacing: 0.1vmin;
+                        @media (max-width: 992px) {
+                            @include padding(3vmin, 2vmin);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.home {
+    background-size: 100%;
+    .content {
+        .soc-med {
+            position: fixed;
+            right: 5vmin;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 50vh;
+            // background-color: $gray;
+            @include flexFunction(column);
+            align-items: center;
+            justify-content: space-evenly;
+            @media (max-width: 992px) {
+                display: none;
+            }
+            i {
+                color: $white;
+                font-size: 3vmin;
+                &:hover {
+                    color: $dark-whitish-gray;
+                }
+            }
+        }
+        .up-down-container {
+            position: fixed;
+            bottom: 5vmin;
+            right: 5vmin;
+            height: 10vh;
+            align-items: center;
+            gap: 2vmin;
+            a {
+                line-height: 0;
+                span {
+                    flex-grow: 1;
+                    text-align: center;
+                    background-color: $gray;
+                }
+            }
+        }
+        .hero {
+            @include flexFunction(row);
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            span {
+                font-size: 5vmin;
+                background-color: $gray
+            }
+            .carousel-container {
+                @include flexFunction(row);
+                width: 75vw;
+                height: 50vh;
+                position: relative;
+                overflow: hidden;
+                .carousel-items {
+                    @include flexFunction(row);
+                    width: 100%;
+                    height: 100%;
+                    color: $white;
+                    align-items: center;
+                    .description-cont, .image-cont {
+                        width: 50%;
+                        height: 100%;
+                        @include flexFunction(row);
+                        justify-content: center;
+                        align-items: center;
+                        @include paddingX(5vmin);
+                        .img-wrapper {
+                            padding: 0.5vmin;
+                            background: linear-gradient(to top, $orange-gradient, $yellow-gradient);
+                            border-radius: 0.5vmin;
+                            line-height: 0;
+                            img {
+                                width: 50vmin;
+                                background: $black;
+                                border-radius: 0.5vmin;
+                                @media (max-width: 992px) {
+                                    width: 30vmin;
+                                }
+                            }
+                        }
+                        p {
+                            font-size: 2.5vmin;
+                        }
+                    }
+                    display: none;
+                    &.active {
+                        display: flex;
+                        animation: fadeVisibility 0.5s ease-in-out;
+                        @keyframes fadeVisibility {
+                            0% {
+                                opacity: 0;
+                            }
+                            100% {
+                                opacity: 1;
+                                transform: opacity linear;
+                            }
+                        }
+                    }
+                }
+                // indicators
+                .indicators-wrapper {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 50%;
+                    height: 100%;
+                    .forRelative {
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        .indicators-cont {
+                            position: absolute;
+                            left: 50%;
+                            top: 50%;
+                            transform: translate(-50%, 800%);
+                            @include flexFunction(row);
+                            justify-content: space-evenly;
+                            align-items: center;
+                            gap: 3vmin;
+                            .indicators {
+                                width: 2vmin;
+                                height: 2vmin;
+                                border-radius: 50%;
+                                background-color: $gray;
+                                border: 0.1vmin solid $black;
+                                cursor: pointer;
+                                &.active {
+                                    background-color: $main;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

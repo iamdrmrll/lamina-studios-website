@@ -1,0 +1,338 @@
+@import './global';
+
+// projects-page
+body {
+    .main {
+        .sidebar {
+
+            .logo-container {
+                a {
+                    line-height: 0;
+                    .logo {
+                        width: 10vmin;
+                        box-shadow: 0 2vmin 2vmin -1.6vmin $main;
+                        transition: box-shadow 0.5s ease-out;
+                        &:hover {
+                            box-shadow: 0 0 0 0;
+                        }
+                    }
+                }
+                .hamburger-container {
+                    display: none;
+                }
+            }
+
+            .nav-container {
+                width: 20vmin;
+                .nav {
+                    position: relative;
+
+                    .nav-item {
+
+                        .about {
+                            color: $white;
+                            cursor: pointer;
+                            &.selected {
+                                background-color: $main;
+                                color: $black;
+
+                                & + .about-dropdown {
+                                    background-color: $dark-gray;
+                                }
+                            }
+                        }
+
+                        .active {
+                            color: $main !important;
+                        }
+
+                        .nav-link{
+                            display: inline-block;
+                            width: 100%;
+                            @include padding(3vmin, 1vmin);
+                            letter-spacing: 0.1vmin;
+                            font-weight: 700;
+
+                            &:hover {
+                                border-bottom: 0.1vmin solid $main;
+                                margin-bottom: -0.1vmin;
+                            }
+
+                            .about-dd-icon {
+                                position: absolute;
+                                right: 0;
+                                transition: all 0.15s ease;
+                                @include paddingX(3vmin);
+
+                                &.selected {
+                                    transform: rotate(-90deg);
+                                    color: $black;
+                                }
+                            }
+                        }
+
+                        .about-dropdown {
+                            position: relative;
+                            .about-item {
+                                display: none;
+
+                                .about-link {
+                                    display: inline-block;
+                                    width: 100%;
+                                    font-size: 1vmin;
+                                    letter-spacing: 0.1vmin;
+                                    font-weight: 700;
+                                    @include padding(4vmin, 1vmin);
+
+                                    &:hover {
+                                        border-bottom: 0.1vmin solid $main;
+                                        margin-bottom: -0.1vmin;
+                                    }
+                                }
+
+                                &.about-animate {
+                                    display: inline-block;
+                                }
+                            }
+                            @for $i from 1 through 5 {
+                                .about-animate:nth-child(#{$i}) {
+                                    .about-link {
+                                        animation-name: aboutDropdown;
+                                        animation-duration: 0.15s * $i;
+                                        animation-timing-function: ease;
+                                        animation-fill-mode: forwards;
+                                    }
+                                }
+                            }
+                            @keyframes aboutDropdown {
+                                0% {
+                                    color: $black;
+                                    opacity: 0;
+                                    position: absolute;
+                                }
+                                100% {
+                                    opacity: 1;
+                                    color: $white;
+                                    position: relative;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .section {
+            .top-bar {
+                .search-container {
+                    .search-input {
+                        @include borderRadius(0.5vmin);
+                        border-style: none;
+                        width: 70%;
+                        font-size: 1.5vmin;
+                        @include oxanium(400);
+                        letter-spacing: 0.1vmin;
+                        @include padding(0.5vmin, 1vmin);
+                        line-height: 0;
+                    }
+                    .search-btn {
+                        @include borderRadius(0.5vmin);
+                        transition: background-color 0.15s ease, color 0.15s ease;
+                        line-height: 0;
+                        &:hover {
+                            background-color: $main;
+                            i {
+                                color: $black;
+                            }
+                        }
+                    }
+                }
+                .account-container {
+
+                    .account-btn {
+                        cursor: pointer;
+                        position: relative;
+                        img {
+                            @include borderRadius(50%);
+                            height: 5vmin;
+                            width: 5vmin;
+                        }
+                        span {
+                            @include poppins(600);
+                            font-size: 2vmin;
+                            letter-spacing: 0.2vmin;
+                        }
+                        .account-dd-icon {
+                            transition: all 0.15s ease;
+                            &.account-dd-icon.open {
+                                transform: rotate(-90deg);
+                            }
+                        }
+                    }
+                    .account-dd {
+                        position: absolute;
+                        border: 0.1vmin solid $gray;
+                        right: 3vmin;
+                        transition: all 0.15s ease;
+                        @include borderRadius(0.5vmin);
+                        // toggle
+                        opacity: 0;
+                        visibility: hidden;
+                        &.open {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                        .account-li {
+                            line-height: 0;
+                            border-bottom: 0.1vmin solid $gray;
+                            &:hover {
+                                &:first-child {
+                                    .account-anchor {
+                                        @include diffBorderRadius(0.5vmin, 0.5vmin, 0, 0);}
+                                }
+                                &:last-child {
+                                    .account-anchor {
+                                        @include diffBorderRadius(0, 0, 0.5vmin, 0.5vmin);}
+                                }
+                            }
+                            &:last-child {
+                                border-bottom: none;
+                            }
+                            .account-anchor {
+                                display: inline-block;
+                                @include padding(1vmin, 2vmin);
+                                width: 100%;
+                                line-height: 0;
+                                @include oxanium(600);
+                                @include textCenter();
+                                letter-spacing: 0.2vmin;
+                                line-height: 0;
+                                color: $black;
+                                &:hover {
+                                    background-color: $whitish-gray;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .content {
+                .header-container {
+                    @include letterSpacing(0.1vmin);
+                    .add-project-btn, .add-user-btn {
+                        line-height: 0;
+                        cursor: pointer;
+                        @include borderRadius(0.5vmin);
+                        box-shadow: 0.1vmin 0.1vmin 1vmin $main;
+                        &::before {
+                            font: var(--fa-font-solid);
+                            content: "\f055";
+                            margin-right: 0.5vmin;
+                        }
+                        &.clicked {
+                            box-shadow: 0 0 0;
+                        }
+                    }
+                    .header-name {
+                        font-size: 3vmin;
+                    }
+                }
+                .table-container {
+                    table {
+                        border-collapse: separate;
+                        border-spacing: 0;
+                        border-radius: 1vmin;
+                        font-size: 1.5vmin;
+                        thead {
+                            tr {
+                                th {
+                                    @include padding(1vmin, 1vmin);
+                                    &:first-child {
+                                        border-top-left-radius: 1vmin;
+                                    }
+                                    &:last-child {
+                                        border-top-right-radius: 1vmin;
+                                    }
+                                }
+                            }
+                        }
+                        tbody {
+                            tr {
+                                td {
+                                    @include padding(1vmin, 1vmin);
+                                    @include textCenter();
+                                    word-break: word;
+                                    border-left: 0.1vmin solid $gray;
+                                    border-bottom: 0.1vmin solid $gray;
+                                    &:last-child {
+                                        line-height: 0;
+                                        border-right: 0.1vmin solid $gray;
+                                        width: 12vmin;
+                                        a {
+                                            i {
+                                                cursor: pointer;
+                                                font-size: 1.5vmin;
+                                                @include padding(1vmin, 1vmin);
+                                                @include borderRadius(0.5vmin);
+                                                box-shadow: 0.1vmin 0.1vmin 1vmin $gray;
+                                                color: $white;
+                                            }
+                                            .edit {
+                                                margin-right: 0.5vmin;
+                                                &:hover {
+                                                    background-color: $dark-blue;}
+                                                &.clicked {
+                                                    box-shadow: 0 0 0;
+                                                }
+                                            }
+                                            .delete {
+                                                margin-left: 0.5vmin;
+                                                &:hover {
+                                                    background-color: $dark-red;}
+                                                &.clicked {
+                                                    box-shadow: 0 0 0;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    img {
+                                        height: 15vmin;
+                                        width: 25vmin;
+                                    }
+                                    &:nth-child(2) {
+                                        line-height: 0;
+                                    }
+                                    &:nth-child(5) {
+                                        line-height: 2.5vmin;
+                                    }
+
+                                }
+                                &:last-child {
+                                    td:first-child {
+                                        border-bottom-left-radius: 1vmin;
+                                    }
+                                    td:last-child {
+                                        border-bottom-right-radius: 1vmin;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        color: $white;
+        @include letterSpacing(0.1vmin);
+
+        .footer-divider {
+            height: 2vmin;
+            background-image: linear-gradient(to right, $yellow-gradient, $orange-gradient);
+            border: none;
+        }
+    }
+}
+
+@import './admin-responsive';

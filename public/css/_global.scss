@@ -1,0 +1,826 @@
+// VARIABLES
+
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@400;500;600;700&family=Poppins:ital,wght@0,500;0,600;0,700;1,500&family=Roboto&display=swap');
+$oxanium: 'Oxanium', cursive;
+$poppins: 'Poppins', sans-serif;
+$roboto: 'Roboto', sans-serif;
+
+// COLORS
+$main: #fac41c;
+$dark-main: #e9b30b;
+$white: #ffffff;
+$dark-white: #eeeeee;
+$black: #000000;
+$gray: #5b5c56;
+$dark-gray: #4a4b45;
+$whitish-gray: #e8e7e7;
+$dark-whitish-gray: #d7d6d6;
+$orange-gradient: #f5841e;
+$yellow-gradient: #fac41c;
+$blue: #007bff;
+$dark-blue: #006aee;
+$darker-blue:#004085;
+$light-blue: #cce5ff;
+$red: #dc3545;
+$dark-red: #cb2434;
+$darker-red: #721c24;
+$light-red: #f8d7da;
+$green: #28a745;
+$dark-green: #179635;
+$light-green: #d4edda;
+$darker-green: #155724;
+
+
+*, *::after, *::before {
+    // outline: 0.1vmin solid greenyellow;
+    box-sizing: border-box;
+}
+
+
+// REUSABLE CLASS
+// margins
+.m-auto {
+    margin: auto;}
+.m-0 {
+    margin: 0;}
+.m-1 {
+    margin: 1vmin;}
+.m-2 {
+    margin: 2vmin;}
+.m-3 {
+    margin: 3vmin;}
+.mt-auto {
+    margin-top: auto;}
+.mt-0 {
+    margin-top: 0;}
+.mt-1 {
+    margin-top: 1vmin;}
+.mt-2 {
+    margin-top: 2vmin;}
+.mt-3 {
+    margin-top: 3vmin;}
+.mb-auto {
+    margin-bottom: auto;}
+.mb-0 {
+    margin-bottom: 0;}
+.mb-1 {
+    margin-bottom: 1vmin;}
+.mb-2 {
+    margin-bottom: 2vmin;}
+.mb-3 {
+    margin-bottom: 3vmin;}
+.ml-auto {
+    margin-left: auto;}
+.ml-0 {
+    margin-left: 0;}
+.ml-1 {
+    margin-left: 1vmin;}
+.ml-2 {
+    margin-left: 2vmin;}
+.ml-3 {
+    margin-left: 3vmin;}
+.mr-auto {
+    margin-right: auto;}
+.mr-0 {
+    margin-right: 0;}
+.mr-1 {
+    margin-right: 1vmin;}
+.mr-2 {
+    margin-right: 2vmin;}
+.mr-3 {
+    margin-right: 3vmin;}
+.mx-auto {
+    margin-right: auto;
+    margin-left: auto;}
+.mx-0 {
+    margin-left: 0;
+    margin-right: 0;}
+.mx-1 {
+    margin-left: 1vmin;
+    margin-right: 1vmin;}
+.mx-2 {
+    margin-left: 2vmin;
+    margin-right: 2vmin;}
+.mx-3 {
+    margin-left: 3vmin;
+    margin-right: 3vmin;}
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;}
+.my-0 {
+    margin-top: 0;
+    margin-bottom: 0;}
+.my-1 {
+    margin-top: 1vmin;
+    margin-bottom: 1vmin;}
+.my-2 {
+    margin-top: 2vmin;
+    margin-bottom: 2vmin;}
+.my-3 {
+    margin-top: 3vmin;
+    margin-bottom: 3vmin;}
+
+// paddings
+.p-auto {
+    padding: auto;}
+.p-0 {
+    padding: 0;}
+.p-1 {
+    padding: 1vmin;}
+.p-2 {
+    padding: 2vmin;}
+.p-3 {
+    padding: 3vmin;}
+.pt-auto {
+    padding-top: auto;}
+.pt-0 {
+    padding-top: 0;}
+.pt-1 {
+    padding-top: 1vmin;}
+.pt-2 {
+    padding-top: 2vmin;}
+.pt-3 {
+    padding-top: 3vmin;}
+.pb-auto {
+    padding-bottom: auto;}
+.pb-0 {
+    padding-bottom: 0 !important;}
+.pb-1 {
+    padding-bottom: 1vmin;}
+.pb-2 {
+    padding-bottom: 2vmin;}
+.pb-3 {
+    padding-bottom: 3vmin;}
+.pl-auto {
+    padding-left: auto;}
+.pl-0 {
+    padding-left: 0;}
+.pl-1 {
+    padding-left: 1vmin;}
+.pl-2 {
+    padding-left: 2vmin;}
+.pl-3 {
+    padding-left: 3vmin;}
+.pr-auto {
+    padding-right: auto;}
+.pr-0 {
+    padding-right: 0;}
+.pr-1 {
+    padding-right: 1vmin;}
+.pr-2 {
+    padding-right: 2vmin;}
+.pr-3 {
+    padding-right: 3vmin;}
+.px-auto {
+    padding-left: auto;
+    padding-right: auto;}
+.px-0 {
+    padding-left: 0;
+    padding-right: 0;}
+.px-1 {
+    padding-left: 1vmin;
+    padding-right: 1vmin;}
+.px-2 {
+    padding-left: 2vmin;
+    padding-right: 2vmin;}
+.px-3 {
+    padding-left: 3vmin;
+    padding-right: 3vmin;}
+.py-auto {
+    padding-top: auto;
+    padding-bottom: auto;}
+.py-0 {
+    padding-top: 0;
+    padding-bottom: 0;}
+.py-1 {
+    padding-top: 1vmin;
+    padding-bottom: 1vmin;}
+.py-2 {
+    padding-top: 2vmin;
+    padding-bottom: 2vmin;}
+.py-3 {
+    padding-top: 3vmin;
+    padding-bottom: 3vmin;}
+
+// buttons
+.btn {
+    padding: 1vmin 0.5vmin;
+    border: none;
+    text-align: center;
+    font-weight: 400;
+    border-radius: 0.5vmin;
+    border: 0.1vmin solid transparent;
+    letter-spacing: 0.1vmin;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+    font-size: 1.5vmin;
+
+    &:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }}
+.btn-main {
+    background-color: $main;
+    border-color: $main;
+    &:hover {
+        background-color: $dark-main;
+    }}
+.btn-white {
+    background-color: $white;
+    border-color: $white;
+    &:hover {
+        background-color: $dark-white;
+    }}
+.btn-blue {
+    background-color: $blue;
+    border-color: $blue;
+    color: $white;
+    &:hover {
+        background-color: $dark-blue;
+    }}
+.btn-red {
+    background-color: $red;
+    border-color: $red;
+    color: $white;
+    &:hover {
+        background-color: $dark-red;
+    }}
+
+// float
+.float-start {
+    float: left;}
+.float-end {
+    float: right;}
+
+// displays and flex properties
+.d-none {
+    display: none !important;}
+.d-block {
+    display: block;}
+.d-inline-block {
+    display: inline-block;}
+.d-inline-flex {
+    display: inline-flex;}
+.d-flex {
+    display: flex;}
+.flex-row {
+    flex-direction: row;}
+.flex-row-reverse {
+    flex-direction: row-reverse;}
+.flex-column {
+    flex-direction: column;}
+.flex-column-reverse {
+
+    flex-direction: column-reverse;}
+.flex-grow {
+    flex-grow: 1;}
+.flex-grow-0 {
+    flex-grow: 0 !important;}
+// gap
+.gap-1 {
+    gap: 1vmin;}
+.gap-2 {
+    gap: 2vmin;}
+.gap-3 {
+    gap: 3vmin;}
+// justify-content
+.justify-content-center {
+    justify-content: center;}
+.justify-content-space-between {
+    justify-content: space-between;}
+.justify-content-space-around {
+    justify-content: space-around;}
+.justify-content-space-evenly {
+    justify-content: space-evenly;}
+.justify-content-start {
+    justify-content: flex-start !important;
+}
+// align-items
+.align-items-center {
+    align-items: center;}
+.align-items-start {
+    align-items: flex-start !important;}
+.align-items-end {
+    align-items: flex-end;}
+
+// borders
+.border-none {
+    border-style: none;}
+.border {
+    border: 0.1vmin solid;}
+.border-top {
+    border-top: 0.1vmin solid;}
+.border-bottom {
+    border-bottom: 0.1vmin solid;}
+.border-left {
+    border-left: 0.1vmin solid;}
+.border-right {
+    border-right: 0.1vmin solid;}
+.border-2 {
+    border: 0.2vmin solid;}
+.border-top-2 {
+    border-top: 0.2vmin solid;}
+.border-bottom-2 {
+    border-bottom: 0.2vmin solid;}
+.border-left-2 {
+    border-left: 0.2vmin solid;}
+.border-right-2 {
+    border-right: 0.2vmin solid;}
+.border-main {
+    border-color: $main;}
+.border-white {
+    border-color: $white;}
+.border-gray {
+    border-color: $gray;}
+.border-blue {
+    border-color: $blue;}
+.border-red {
+    border-color: $red;}
+.border-light-green {
+    border-color: $light-green;}
+// border-radius
+.bd-r-0p1 {
+    border-radius: 0.1vmin;}
+.bd-r-1 {
+    border-radius: 1vmin;}
+.bd-r-2 {
+    border-radius: 2vmin;}
+.bd-r-0p5 {
+    border-radius: 0.5vmin;}
+
+
+
+// width & height
+.w-25 {
+    width: 25%;}
+.w-33 {
+    width: 33%;}
+.w-50 {
+    width: 50%;}
+.w-75 {
+    width: 75%;}
+.w-100 {
+    width: 100%;}
+.h-25 {
+    height: 25%;}
+.h-50 {
+    height: 50%;}
+.h-75 {
+    height: 75%;}
+.h-100 {
+    height: 100%;}
+
+// background color
+.bg-main {
+    background-color: $main;}
+.bg-white {
+    background-color: $white;}
+.bg-black {
+    background-color: $black;}
+.bg-gray {
+    background-color: $gray;}
+.bg-whitish-gray {
+    background-color: $whitish-gray;}
+.bg-blue {
+    background-color: $blue;}
+.bg-red {
+    background-color: $red;}
+.bg-lighter-red {
+    background-color: $light-red;}
+.bg-overlay {
+    background-color: rgba(0, 0, 0, 0.5);}
+.bg-lighter-green {
+    background-color: $light-green;}
+// color
+.color-main {
+    color: $main;}
+.color-black {
+    color: $black;}
+.color-white {
+    color: $white;}
+.color-gray {
+    color: $gray;}
+.color-whitish-gray {
+    color: $whitish-gray;}
+.color-blue {
+    color: $blue;}
+.color-red {
+    color: $red;}
+.color-darker-green {
+    color: $darker-green;}
+
+// text center and uppercase
+.text-center {
+    text-align: center;}
+.text-start {
+    text-align: start;}
+.text-uppercase {
+    text-transform: uppercase;}
+
+// positions
+.pos-absolute {
+    position: absolute;}
+.pos-relative {
+    position: relative;}
+.pos-fixed {
+    position: fixed;}
+.top-0 {
+    top: 0;}
+.bottom-0 {
+    bottom: 0;}
+.left-0 {
+    left: 0;}
+.right-0 {
+    right: 0;}
+
+// z-indexes
+.z-index-0 {
+    z-index: 0;}
+.z-index-1 {
+    z-index: 1;}
+.z-overlay {
+    z-index: 999;}
+.z-clickable {
+    z-index: 1000;}
+
+// visibilities
+.v-hidden {
+    visibility: hidden;}
+.v-visible {
+    visibility: visible;}
+.opacity-0 {
+    opacity: 0;}
+.opacity-1 {
+    opacity: 1;}
+
+// font sizes
+.font-size-1p5 {
+    font-size: 1.5vmin;}
+.font-size-1 {
+    font-size: 1vmin;}
+.font-size-2 {
+    font-size: 2vmin;}
+
+// font weights
+.fw-700 {
+    font-weight: 700;}
+.fw-600 {
+    font-weight: 600;}
+.fw-500 {
+    font-weight: 500;}
+.fw-400 {
+    font-weight: 400;}
+
+// line height
+.line-height-0 {
+    line-height: 0;}
+.line-height-1p5 {
+    line-height: 1.5vmin;}
+
+// cursor
+.cursor-pointer {
+    cursor: pointer;
+}
+
+// media
+@media (max-width: 992px) {
+    .w-sm-0 {
+        width: 0;}
+    .w-sm-25 {
+        width: 25%;}
+    .w-sm-50 {
+        width: 50%;}
+    .w-sm-75 {
+        width: 75%;}
+    .w-sm-100 {
+        width: 100%;}
+}
+
+// REUSABLE FUNCTIONS
+// flex with direction
+@mixin flexFunction($direction) {
+    display: flex;
+    flex-direction: $direction;}
+// paddings
+@mixin padding($x, $y) {
+    padding-left: $x;
+    padding-right: $x;
+    padding-top: $y;
+    padding-bottom: $y;}
+@mixin paddingX($x) {
+    padding-left: $x;
+    padding-right: $x;}
+@mixin paddingY($y) {
+    padding-top: $y;
+    padding-bottom: $y;}
+//margins
+@mixin margin($x, $y) {
+    margin-left: $x;
+    margin-right: $x;
+    margin-top: $y;
+    margin-bottom: $y;}
+@mixin marginX($x) {
+    margin-left: $x;
+    margin-right: $x;}
+@mixin marginY($y) {
+    margin-top: $y;
+    margin-bottom: $y;}
+// text center
+@mixin textCenter {
+    text-align: center;}
+// text uppercase
+@mixin textUppercase {
+    text-transform: uppercase;}
+// border radius
+@mixin borderRadius($r) {
+    border-radius: $r $r $r $r;}
+@mixin diffBorderRadius($r1, $r2, $r3, $r4) {
+    border-radius: $r1 $r2 $r3 $r4;
+}
+// letter spacing
+@mixin letterSpacing($spacing) {
+    letter-spacing: $spacing;}
+// fonts with weight
+@mixin poppins($weight) {
+    font-family: $poppins;
+    font-weight: $weight;}
+@mixin oxanium($weight) {
+    font-family: $oxanium;
+    font-weight: $weight;}
+@mixin roboto($weight) {
+    font-family: $roboto;
+    font-weight: $weight;}
+
+
+// GLOBAL TAG
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: relative;
+    @include flexFunction(column);
+    @include textUppercase();
+    font-family: $oxanium;
+    font-size: 1.5vmin;
+    color: $black;
+}
+ul {
+    list-style-type: none;
+    @include margin(0, 0);
+    @include padding(0, 0)
+}
+a {
+    text-decoration: none;
+    color: $white;
+}
+h1, h2, h3, h4, h5 {
+    margin: 0;
+}
+p {
+    margin: 0;
+}
+input {
+    @include oxanium(400);
+    @include padding(1vmin, 0.5vmin);
+    font-size: 1.5vmin;
+    border-style: none;
+    // @include textCenter();
+    @include borderRadius(0.5vmin);
+    line-height: 0;
+    letter-spacing: 0.1vmin;
+    // outline: 0.1vmin solid $gray;
+    border: 0.1vmin solid $gray;
+    // border-style: hidden;
+    @media (max-width: 992px) {
+        font-size: 2vmin;
+    }
+}
+textarea {
+    @include padding(1vmin, 0.5vmin);
+    font-size: 1.5vmin;
+    @include oxanium(400);
+    @include borderRadius(0.5vmin);
+    border-style: none;
+    letter-spacing: 0.1vmin;
+    // @include textCenter();
+    resize: none;
+    outline: 0.1vmin solid $gray;
+}
+
+// modals
+.modal-add, .modal-edit {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    line-height: normal;
+    &.show {
+        display: flex;
+    }
+    .modal-dialog {
+        position: relative;
+        background-color: $whitish-gray;
+        z-index: 1000;
+        border-radius: 0.5vmin;
+        padding: 1vmin;
+        @include flexFunction(column);
+        .modal-container {
+            @include flexFunction(column);
+            flex-grow: 1;
+            .modal-head-container {
+                @include flexFunction(row);
+                justify-content: space-between;
+                border-bottom: 0.1vmin solid $gray;
+                h4 {
+                    @include padding(1vmin, 1vmin);
+                }
+            }
+            .modal-body-container {
+                @include flexFunction(column);
+                flex-grow: 1;
+                form {
+                    .page {
+                        h4 {
+                            @include padding(1vmin, 1vmin);
+                            text-align: start;
+                        }
+                        .row {
+                            @include flexFunction(row);
+                            justify-content: center;
+                            align-items: center;
+                            .col {
+                                width: 33%;
+                                @include flexFunction(column);
+                                justify-content: center;
+                                align-items: center;
+                                .upload-btn {
+                                    @include flexFunction(column);
+                                    justify-content: center;
+                                    align-items: center;
+                                    .fake-input {
+                                        @include flexFunction(row);
+                                        justify-content: center;
+                                        align-items: center;
+                                        gap: 1vmin;
+                                        position: absolute;
+                                        z-index: 1;
+                                        label {
+                                            i {
+                                                @include padding(2vmin, 1vmin);
+                                                background-color: $white;
+                                                border-radius: 0.5vmin;
+                                                // outline: 0.1vmin solid $gray;
+                                                color: $blue;
+                                                cursor: pointer;
+                                            }
+                                            cursor: pointer;
+                                            color: $blue;
+                                        }
+                                    }
+                                    input {
+                                        position: relative;
+                                        width: 33%;
+                                        z-index: 0;
+                                        opacity: 0;
+                                    }
+                                }
+                                label {
+                                    line-height: 1.5vmin;
+                                }
+                                input {
+                                    @include margin(1vmin, 1vmin);
+                                    line-height: 1.5vmin;
+                                }
+                                i {
+                                    @include padding(2vmin, 1vmin);
+                                    background-color: $white;
+                                    border-radius: 0.5vmin;
+                                    // outline: 0.1vmin solid $gray;
+                                    border: 0.1vmin solid $gray;
+                                    color: $blue;
+                                    cursor: pointer;
+                                    @include margin(1vmin, 1vmin);
+                                }
+                            }
+                            .description-row {
+                                width: 100%;
+                                textarea {
+                                    width: 90%;
+                                    @include margin(1vmin, 1vmin);
+                                }
+                            }
+                            &:last-child:not(.footer) {
+                                border-bottom: 0.1vmin solid $gray;
+                            }
+                            .user-col {
+                                @include flexFunction(column);
+                                @include paddingY(1vmin);
+                                position: relative;
+                                font-size: 1.5vmin;
+                                flex-grow: 1;
+                                input {
+                                    margin-top: 0.5vmin;
+                                    width: 100%;
+                                    position: relative;
+                                    z-index: 0;
+                                    @media (max-width: 992px) {
+                                        &[type=password] {
+                                            font-size: 2vmin;
+                                            letter-spacing: 0.5vmin;
+                                        }
+                                    }
+                                    &[type=password] {
+                                        letter-spacing: 0.5vmin;
+                                    }
+                                }
+                                .save-user {
+                                    width: 25%;
+                                    color: $black;
+                                    transform: skewX(0deg);
+                                    border: none;
+                                    @include letterSpacing(0.1vmin);
+                                    @include oxanium(600);
+                                    @include padding(1vmin, 1vmin);
+                                    clip-path: polygon(80% 0%, 100% 30%, 100% 100%, 20% 100%, 0% 70%, 0 0);
+                                    background-color: $main;
+                                    cursor: pointer;
+                                    font-size: 1.5vmin;
+                                    @media (max-width: 992px) {
+                                        font-size: 2vmin;
+                                    }
+                                }
+                                .eye {
+                                    background-color: $white;
+                                    position: absolute;
+                                    right: 1vmin;
+                                    top: 50%;
+                                    font-size: 2vmin;
+                                    z-index: 1;
+                                    cursor: pointer;
+                                    line-height: 2vmin;
+                                    @include padding(0.1vmin, 0.1vmin);
+                                    @media (min-width: 992px) {
+                                        &:hover {
+                                            background-color: $whitish-gray;
+                                            border-radius: 50%;
+                                            @include padding(0.1vmin, 0.1vmin);
+                                        }
+                                    }
+                                    @media (max-width: 992px) {
+                                        font-size: 2.5vmin;
+                                        line-height: 2.5vmin;
+                                    }
+                                }
+                            }
+                        }
+                        .user-row {
+                            justify-content: flex-start;
+                            @include paddingX(1vmin);
+                        }
+                        .footer:not(.user-row) {
+                            padding-top: 1vmin;
+                            @include paddingX(1vmin);
+                            button {
+                                transform: skewX(-25deg);
+                                @include padding(1vmin, 1vmin);
+                                span {
+                                    transform: skewX(25deg);
+                                    color: $black;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.modal-add {
+    .modal-dialog {
+        .modal-container {
+            .modal-body-container {
+                form {
+                    .page {
+                        .row {
+                            .col {
+                                .upload_bg::after, .project-name::after {
+                                    content: '*';
+                                    @include marginX(0.5vmin);
+                                    color: $red;
+                                    font-size: 2vmin;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

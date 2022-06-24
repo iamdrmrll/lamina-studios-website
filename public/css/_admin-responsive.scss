@@ -1,0 +1,188 @@
+@media (max-width: 992px) {
+    body {
+        font-size: 2vmin;
+        .main {
+            flex-direction: column;
+
+            .sidebar {
+                gap: 0;
+                .logo-container {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    @include marginX(3vmin);
+
+                    .hamburger-container {
+                        background: transparent;
+                        width: 8vmin;
+                        height: 7vmin;
+                        @include flexFunction(column);
+                        margin: -0.1vmin;
+                        @include borderRadius(1vmin);
+                        position: relative;
+                        justify-content: space-evenly;
+                        align-items: center;
+
+                        &.open {
+                            z-index: 1000;
+                        }
+
+                        .hamburger-lines {
+                            background-color: $white;
+                            height: 0.1vmin;
+                            width: 60%;
+                            transition: all 0.15s ease;
+                        }
+                        .hamburger-1 {
+                            &.hamburger-open {
+                                position: absolute;
+                                transform: rotate(45deg);
+                                background-color: $main;
+                            }
+                        }
+                        .hamburger-2 {
+                            &.hamburger-open {
+                                width: 0;
+                                background-color: $main;
+                            }
+                        }
+                        .hamburger-3 {
+                            &.hamburger-open {
+                                position: absolute;
+                                transform: rotate(-45deg);
+                                background-color: $main;
+                            }
+                        }
+                        &.hamburger-open {
+                            border-color: $main;
+                        }
+                    }
+                }
+
+                .nav-container {
+                    width: 100%;
+                    @include paddingX(6vmin);
+                    .nav {
+                        gap: 3vmin;
+                        position: relative;
+                        width: 100%;
+                        .nav-item {
+                            display: none;
+
+                            .nav-link{
+                                display: inline-block;
+                                width: 100%;
+                                @include textCenter();
+                                @include paddingY(1vmin);
+                                font-size: 2vmin;
+                                letter-spacing: 0.1vmin;
+                                font-weight: 700;
+
+                                &:hover {
+                                    border-bottom: 0.1vmin solid $main;
+                                    margin-bottom: -0.1vmin;
+                                }
+                            }
+                            .about-dropdown {
+                                .about-item {
+
+                                    .about-link {
+                                        @include textCenter();
+                                        font-size: 1.5vmin;
+                                        @include paddingY(1vmin);
+                                    }
+                                }
+                            }
+                            &.nav-show {
+                                display: list-item;
+                            }
+                        }
+                        @for $i from 1 through 6 {
+                            .nav-show:nth-child(#{$i}) {
+                                .nav-link {
+                                    animation-name: dropdown;
+                                    animation-duration: 0.15s * $i;
+                                    animation-timing-function: ease;
+                                    animation-fill-mode: forwards;
+                                }
+                            }
+                            @if $i == 6 {
+                                .nav-item:nth-child(#{$i}) {
+                                    padding-bottom: 3vmin;
+                                }
+                            }
+                        }
+                        @keyframes dropdown {
+                            0% {
+                                // color: $black;
+                                opacity: 0;
+                                position: absolute;
+                            }
+                            100% {
+                                opacity: 1;
+                                // color: $white;
+                                position: relative;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .section {
+                .top-bar {
+                    .search-container {
+                        .search-input {
+                            font-size: 2vmin;
+                        }
+                        a {
+                            font-size: 2vmin;
+                        }
+                    }
+                    .account-container {
+                        .account-btn {
+                            font-size: 2vmin;
+                        }
+                    }
+                }
+                .content {
+                    .header-container {
+                        .header-name {
+                            font-size: 4vmin;
+                        }
+                        .add-project-btn {
+                            font-size: 2vmin;
+                        }
+                    }
+                    .table-container {
+                        table {
+                            font-size: 2vmin;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .footer {
+        font-size: 2vmin;
+    }
+
+    // modal
+    .modal {
+        .modal-dialog {
+            .modal-container {
+                .modal-body-container {
+                    form {
+                        .page {
+                            .row {
+                                .col {
+                                    input {
+                                        font-size: 2vmin;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
