@@ -28,11 +28,17 @@ Must have first:
 2. **Laravel** - install laravel through composer, see documentation for more info: https://laravel.com/docs/9.x
 3. **XAMPP** - https://www.apachefriends.org/
 
-For usage:
-1. Open `XAMPP`, start `Apache` and `MySQL`
-2. Open `browser`, go to `localhost/phpmyadmin`
-4. Download or clone the repository
-5. go inside the folder `lamina-studios-website`
-6. 
-7. open `command prompt` or `git-bash` within that folder.
-8. 
+## Deployment
+1. Download or clone the repository
+2. Go inside the folder `lamina-studios-website`
+3. Open `XAMPP`, start `Apache` and `MySQL
+4. Open `browser`, go to http://localhost/phpmyadmin
+5. Create a database named `lamina-studios`
+6. Import the sql file (`lamina-studios.sql`) from `lamina-studios-website` (local repository folder) -> `_db` folder
+8. Open `command prompt` or `git-bash` within that folder.
+11. Run `php artisan serve`, it should run and have the output of `127.0.0.1:8000`
+12. Go to http://127.0.0.1:8000
+13. Enjoy the project/website!
+
+## Authors
+- [@iamdrmrll](https://www.github.com/iamdrmrll)
